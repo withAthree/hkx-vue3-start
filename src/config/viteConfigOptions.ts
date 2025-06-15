@@ -15,6 +15,7 @@ export const autoImportConfig: Options = {
       'useNotification',
       'useLoadingBar',
     ],
+    '@vueuse/core': [],
   }],
   dts: 'types/auto-imports.d.ts',
   eslintrc: {
