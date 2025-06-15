@@ -6,9 +6,7 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { defineConfig } from 'vite';
 import vueDevTools from 'vite-plugin-vue-devtools';
-
-import autoComponentsConfig from './src/config/autoComponentsConfig';
-import autoImportConfig from './src/config/autoImportConfig';
+import { autoComponentsConfig, autoImportConfig } from './src/config/viteConfigOptions';
 
 // https://vite.dev/config/
 export default defineConfig({
