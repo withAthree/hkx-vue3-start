@@ -1,0 +1,52 @@
+{
+  "name": "hkx-vue3-start",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "description": "HKX Vue3 项目启动模板",
+  "scripts": {
+    "dev": "vite --force",
+    "build": "pnpm type-check && pnpm build-only",
+    "build-only": "cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "lint:style": "stylelint \"**/*.{css,vue}\"",
+    "lint:style:fix": "stylelint \"**/*.{css,vue}\" --fix"
+  },
+  "dependencies": {
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitejs/plugin-vue-jsx": "^5.1.1",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.32.0",
+    "hkx-eslint-config": "^1.2.3",
+    "hkx-stylelint-config": "^1.1.0-alpha.0",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.1.5",
+    "postcss-html": "^1.8.0",
+    "simple-git-hooks": "^2.13.1",
+    "stylelint": "^16.23.0",
+    "terser": "^5.44.0",
+    "typescript": "~5.9.3",
+    "unplugin-auto-import": "^20.2.0",
+    "unplugin-vue-components": "^30.0.0",
+    "unplugin-vue-setup-extend-plus": "^1.0.1",
+    "vite": "^7.1.11",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-top-level-await": "^1.6.0",
+    "vite-plugin-vue-devtools": "^8.0.3",
+    "vue-tsc": "^3.1.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,vue}": "eslint --fix"
+  },
+  "packageManager": "pnpm@10.19.0"
+}
