@@ -8,6 +8,12 @@ import viteCompression from 'vite-plugin-compression';
 import topLevelAwait from 'vite-plugin-top-level-await';
 import { resolve } from 'path';
 
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+
+import tailwindcss from '@tailwindcss/vite';
+
 const pathResolve = (dir: string) => resolve(__dirname, '.', dir);
 
 const alias: Record<string, string> = {
@@ -30,6 +36,34 @@ export default defineConfig(({ mode }) => {
         promiseExportName: '__tla',
         promiseImportName: (i) => `__tla_${i}`,
       }),
+      AutoImport({
+        include: [
+          /\.[tj]sx?$/,
+          /\.vue$/,
+          /\.vue\?vue/,
+          /\.vue\.[tj]sx?\?vue/,
+        ],
+        imports: ['vue', 'vue-router', {
+          'naive-ui': [
+            'useDialog',
+            'useMessage',
+            'useNotification',
+            'useLoadingBar',
+          ],
+          '@vueuse/core': [],
+        }],
+        dts: 'typings/auto-imports.d.ts',
+        eslintrc: {
+          enabled: true,
+        },
+      }),
+      Components({
+        dirs: ['src/components'],
+        resolvers: [NaiveUiResolver()],
+        include: [/\.vue$/, /\.vue\?vue/],
+        dts: 'typings/components.d.ts',
+      }),
+      tailwindcss(),
     ],
 
     // 项目根目录
