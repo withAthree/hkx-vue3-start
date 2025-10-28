@@ -1,11 +1,8 @@
-import type { App } from 'vue';
+// https://pinia.vuejs.org/
 import { createPinia } from 'pinia';
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
-export const installPinia = (app: App) => {
-  const pinia = createPinia();
-  pinia.use(piniaPluginPersistedstate);
-  app.use(pinia);
-};
+// 创建
+const pinia = createPinia();
 
-export * from './global';
+// 导出
+export default pinia;

@@ -1,19 +1,16 @@
-import type { App } from 'vue';
-import { createRouter, createWebHistory } from 'vue-router';
-import { staticRouter } from './config';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import { baseRoutes } from './route';
 
-export const installRouter = (app: App) => {
-  const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
-    routes: staticRouter,
-  });
+const router = createRouter({
+  history: createWebHashHistory(),
+  /**
+   * 说明：
+   * 1、notFoundAndNoPower 默认添加 404、401 界面，防止一直提示 No match found for location with path 'xxx'
+   * 2、backEnd.ts(后端控制路由)、frontEnd.ts(前端控制路由) 中也需要加 notFoundAndNoPower 404、401 界面。
+   *    防止 404、401 不在 layout 布局中，不设置的话，404、401 界面将全屏显示
+   */
+  routes: [...baseRoutes],
+});
 
-  // router.beforeEach((to, from) => {
-  //   return true;
-  // });
-  //
-  // router.afterEach((to, from) => {
-  // });
 
-  app.use(router);
-};
+export default router;
