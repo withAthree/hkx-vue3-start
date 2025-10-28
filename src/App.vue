@@ -1,7 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>123</div>
+  <n-config-provider>
+    <n-message-provider>
+      <router-view />
+    </n-message-provider>
+  </n-config-provider>
 </template>
 
 <style scoped></style>

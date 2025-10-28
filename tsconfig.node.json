@@ -1,33 +1,37 @@
 {
-    "compilerOptions": {
-        "composite": true,
-        "target": "es2024",
-        "module": "esnext",
-        "types": ["node"],
-        "lib": [
-            "ES2024",
-            "ESNext.Array",
-            "ESNext.Collection",
-            "ESNext.Iterator",
-            "ESNext.Promise"
-        ],
-        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-        "skipLibCheck": true,
-
-        /* Bundler Mode */
-        "noEmit": true,
-        "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
-        "verbatimModuleSyntax": true,
-        "moduleDetection": "force",
-
-        /* Linting */
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "erasableSyntaxOnly": true,
-        "noFallthroughCasesInSwitch": true,
-        "noUncheckedSideEffectImports": true
-    },
-    "include": ["vite.config.ts"],
+  "compilerOptions": {
+    "composite": true,
+    "target": "esnext",
+    "module": "esnext",
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "esnext",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Iterator",
+      "ESNext.Promise"
+    ],
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "skipLibCheck": true,
+    /* Bundler Mode */
+    "noEmit": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": [
+    "vite.config.*",
+    "eslint.config.*",
+    "postcss.config.*"
+  ]
 }

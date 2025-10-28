@@ -3,22 +3,16 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import vueDevTools from 'vite-plugin-vue-devtools';
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite';
+import { fileURLToPath, URL } from 'node:url';
 
 import viteCompression from 'vite-plugin-compression';
 import topLevelAwait from 'vite-plugin-top-level-await';
-import { resolve } from 'path';
 
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 
 import tailwindcss from '@tailwindcss/vite';
-
-const pathResolve = (dir: string) => resolve(__dirname, '.', dir);
-
-const alias: Record<string, string> = {
-  '@': pathResolve('./src/'),
-};
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
@@ -70,8 +64,10 @@ export default defineConfig(({ mode }) => {
     root: process.cwd(),
     // 别名
     resolve: {
-      alias,
-      extensions: ['ts', 'tsx', 'js', 'jsx'],
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
     base: mode === 'production' ? './' : env.VITE_PUBLIC_PATH,
     server: {
