@@ -5,6 +5,7 @@
   "private": true,
   "description": "HKX Vue3 项目启动模板",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite --force",
     "build": "pnpm type-check && pnpm build-only",
     "build-only": "cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build",
