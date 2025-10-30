@@ -17,7 +17,6 @@
     "lint:style:fix": "stylelint \"**/*.{css,vue}\" --fix"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.16",
     "@vueuse/core": "^14.0.0",
     "naive-ui": "^2.43.1",
     "pinia": "^3.0.3",
@@ -26,6 +25,7 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.16",
     "@types/node": "^24.9.1",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitejs/plugin-vue-jsx": "^5.1.1",

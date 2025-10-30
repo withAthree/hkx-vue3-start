@@ -3,9 +3,11 @@ export default {
     'postcss-nested': {},
     'postcss-simple-vars': {},
     'postcss-extend': {},
-    'postcss-mixin': {},
+    'postcss-mixins': {},
     autoprefixer: {
-      browsers: 'last 2 versions',
+      overrideBrowserslist: [
+        'last 2 versions',
+      ],
     },
   },
 };

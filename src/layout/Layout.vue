@@ -14,6 +14,10 @@ import Main from './Main.vue';
 </template>
 
 <style scoped>
+@define-mixin border $color {
+  border: 1px solid $color;
+}
+
 .layout {
   display: grid;
   grid-template-columns: [c1] 200px [c2] auto [c3] 200px [c4];
@@ -27,25 +31,25 @@ import Main from './Main.vue';
   .header {
     grid-column: c1 / c4;
     grid-row: r1 / r2;
-    border: 1px solid red;
+    @mixin border black;
   }
 
   .left-panel {
     grid-column: c1 / c2;
     grid-row: r2 / r4;
-    border: 1px solid red;
+    @mixin border black;
   }
 
   .right-panel {
     grid-column: c3 / c4;
     grid-row: r2 / r4;
-    border: 1px solid red;
+    @mixin border black;
   }
 
   .main {
     grid-column: c2 / c3;
     grid-row: r2 / r4;
-    border: 1px solid red;
+    @mixin border black;
   }
 }
 </style>

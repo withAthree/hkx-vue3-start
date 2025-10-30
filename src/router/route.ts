@@ -18,6 +18,13 @@ declare module 'vue-router' {
  * 定义静态路由（默认路由）
  */
 export const staticRoutes: RouteRecordRaw[] = [
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('@/views/Home.vue'),
+    meta: {
+    },
+  },
 ];
 
 /**
@@ -57,6 +64,8 @@ export const baseRoutes: RouteRecordRaw[] = [
     meta: {
       isKeepAlive: true,
     },
-    children: [],
+    children: [
+      ...staticRoutes,
+    ],
   },
 ];

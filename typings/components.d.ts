@@ -12,6 +12,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    NButton: typeof import('naive-ui')['NButton']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -21,6 +22,7 @@ declare module 'vue' {
 
 // For TSX support
 declare global {
+  const NButton: typeof import('naive-ui')['NButton']
   const NConfigProvider: typeof import('naive-ui')['NConfigProvider']
   const NMessageProvider: typeof import('naive-ui')['NMessageProvider']
   const RouterLink: typeof import('vue-router')['RouterLink']
